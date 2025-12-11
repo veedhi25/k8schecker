@@ -17,10 +17,8 @@ variables:
   containerRegistry: 'ecomsite.azurecr.io'
   dockerfilePath: '$(Build.SourcesDirectory)/service4/Dockerfile'
   tag: '$(Build.BuildId)'
-
 pool:
  name: 'azurecicdagent'
-
 stages:
 - stage: Build
   displayName: Build 
@@ -36,7 +34,7 @@ stages:
         command: 'build'
         Dockerfile: 'service4/Dockerfile'
         tags: '$(tag)'
-  stage: push
+- stage: push
   displayName: push 
   jobs:
   - job: push
